@@ -184,6 +184,7 @@ def prettyprint_statistics(response):
     Print statistics in a human readable way.
     """
     data = response.json()
+    print data
 
     # Extract keys
     time_from = data['statistics']['from']
@@ -195,11 +196,11 @@ def prettyprint_statistics(response):
         timeseries_key = data['statistics']['timeseries'].keys()[0]
         stats_key = data['statistics']['stats'].keys()[0]
         num_timeseries_values = len(data['statistics']['timeseries'].get(timeseries_key))
-        stats_calc_key = data['statistics']['stats'].get(stats_key).keys()[0]
-        total = data['statistics']['stats'].get(stats_key).get(stats_calc_key)
+        stats_calc_value = data['statistics']['stats'].get(stats_key).values()
         time_range = time_to - time_from
 
-        print 'Total' + ': ' + str(total)
+        total = stats_calc_value[0] if len(stats_calc_value) != 0 else 0
+        print 'Total: %s' % total
 
         print 'Timeseries: '
         for index, value in enumerate(data['statistics']['timeseries'].get(timeseries_key)):

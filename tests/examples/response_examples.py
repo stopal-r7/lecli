@@ -91,6 +91,33 @@ ts_response = {
     }
 }
 
+empty_ts_response = {
+    'statistics': {
+        'from': 123123,
+        'to': 123123,
+        'count': 0.0,
+        'stats': {
+            'global_timeseries':
+                {}
+        },
+        'granularity': 120000,
+        'timeseries': {
+            'global_timeseries': [
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0},
+                {'count': 0.0}
+            ]
+        }
+    }
+}
+
 events_response = {
     'events': [
         {'timestamp': 1432080000011, 'message': 'Message contents1'},
